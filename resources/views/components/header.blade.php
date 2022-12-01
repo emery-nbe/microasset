@@ -14,8 +14,15 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mon Compte</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Se connecter</button>
-                            <button class="dropdown-item" type="button">Créer un compte</button>
+                            @if( auth()->check() )
+                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Profil</button></a>
+                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Historique d'achats</button></a>
+                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Panier</button></a>
+                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Livrés</button></a>
+                            @else
+                                <a href="{{route('login')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Se connecter</button></a>
+                                <a href="{{route('register')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Créer un compte</button></a>
+                            @endif
                         </div>
                     </div>
                     <div class="btn-group mx-2">

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,14 @@ Route::group(['prefix' => 'shop'], function () {
     Route::get('payer-la-facture', [ShopController::class,'showPaiement'])->name('paiement');
     Route::get('shop-detail', [ShopController::class,'showShopDetail'])->name('shop-detail');
 
+});
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('login', [LoginController::class,'show'])->name('login');
+    Route::post('login-post', [LoginController::class,'store'])->name('login-post');
+
+    Route::get('register', [RegisterController::class,'show'])->name('register');
+    Route::post('store', [RegisterController::class,'store'])->name('register-store');
 });
 
 
