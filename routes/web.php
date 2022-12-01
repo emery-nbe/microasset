@@ -16,7 +16,8 @@ use App\Http\Controllers\ShopController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
-Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
+Route::get('contact', [IndexController::class, 'contact'])->name('contact');
+Route::post('sendMessage', [IndexController::class, 'sendMessage'])->name('sendMessage');
 
 Route::group(['prefix' => 'shop'], function () {
     Route::get('/', [ShopController::class,'index'])->name('shop');
