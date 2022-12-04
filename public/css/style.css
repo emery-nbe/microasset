@@ -5,6 +5,10 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -34,6 +38,18 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Roboto", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+
+*{
+    font-family: Montserrat;
+}
+
+.border-green{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #28a745;
 }
 
 *,

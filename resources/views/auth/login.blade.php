@@ -12,7 +12,15 @@
             <div class="bg-light p-30 mb-5">
                 <form action="{{route('login-post')}}" method="POST">
                     @csrf
+
                     <div class="row">
+                        <div class="col-md-8">
+                            @if(Session::has('auth-error'))
+                                <div class="alert alert-danger">
+                                    {{Session::get('auth-error') }}
+                                </div>
+                            @endif
+                        </div>
                         <div class="col-md-8 form-group">
                             <label>Email</label>
                             <input class="form-control" type="email" placeholder="email" name="email">

@@ -4,7 +4,7 @@
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
                     <a class="text-body mr-3" href="">A propos</a>
-                    <a class="text-body mr-3" href="">Contact</a>
+                    <a class="text-body mr-3" href="{{route('contact')}}">Contact</a>
                     <a class="text-body mr-3" href="">Aide</a>
                     <a class="text-body mr-3" href="">FAQs</a>
                 </div>
@@ -14,15 +14,19 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mon Compte</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            @if( auth()->check() )
-                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Profil</button></a>
-                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Historique d'achats</button></a>
-                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Panier</button></a>
-                                <a href="{{route('')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Livrés</button></a>
-                            @else
+                            @auth
+                            <ul class="list-unstyled p-1">
+                                <li><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas fa-user mr-2"></i>Profil</li>
+                                <li><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas far fa-file-alt mr-2"></i>Mes achats</a></li>
+                                <li><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas fa-shopping-cart text-dark mr-2"></i>Panier</li>
+                                <li><a href="{{route('log-out')}}" class="text-decoration-none text-dark"><i class="fas fa-sign-out-alt mr-2"></i>Se deconnecter</li>
+                            </ul>
+                            @endauth
+
+                            @guest
                                 <a href="{{route('login')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Se connecter</button></a>
                                 <a href="{{route('register')}}" class="text-decoration-none"><button class="dropdown-item" type="button">Créer un compte</button></a>
-                            @endif
+                            @endguest
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -41,11 +45,11 @@
                 <div class="d-inline-flex align-items-center d-block d-lg-none">
                     <a href="" class="btn px-0 ml-2">
                         <i class="fas fa-heart text-dark"></i>
-                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 3px;">0</span>
                     </a>
                     <a href="" class="btn px-0 ml-2">
                         <i class="fas fa-shopping-cart text-dark"></i>
-                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 3px;">0</span>
                     </a>
                 </div>
             </div>

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,9 +17,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'firstname',
         'name',
         'email',
+        'phone',
         'password',
+        'genre',
     ];
 
     /**
@@ -41,4 +43,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $attributes = [
+        'genre' => 'm',
+        'firstname' => 'microasset',
+        'phone' => '123456789',
+    ];
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = bcrypt($password);
+     }
+
+    public function Clients(){
+        return $this->hasMany(Client::class);
+    }
+
+    public function Marchand(){
+        return $this->hasMany(Marchand::class);
+    }
+
 }

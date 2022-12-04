@@ -31,10 +31,12 @@ Route::group(['prefix' => 'shop'], function () {
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class,'show'])->name('login');
-    Route::post('login-post', [LoginController::class,'store'])->name('login-post');
+    Route::post('login-post', [LoginController::class,'login'])->name('login-post');
 
     Route::get('register', [RegisterController::class,'show'])->name('register');
     Route::post('store', [RegisterController::class,'store'])->name('register-store');
+
+    Route::get('log-out', [LoginController::class,'logOut'])->name('log-out');
 });
 
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
 
 class RegisterController extends Controller
@@ -15,18 +14,19 @@ class RegisterController extends Controller
 
     public function store(){
         $this->validate(request(), [
+            'firstname' =>'required',
             'name' => 'required',
-            'sexe' => 'required',
-            'phone' => 'required|numeric',
+            'phone' => 'required',
+            'genre' => 'required',
             'email' => 'email',
+            'type_compte' => 'required',
             'password' => 'required|max:8'
-
         ]);
 
-        $user = User::create(request(['name', 'sexe','phone', 'email','password']));
+        $user = User::create(request(['firstname','name', 'phone','genre', 'email', 'type_compte', 'password']));
 
         auth()->login($user);
 
-        return redirect('/')->with('success', "Account successfully registered.");
+        return redirect()->to(route('index'));
 	}
 }

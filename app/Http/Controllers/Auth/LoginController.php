@@ -11,11 +11,16 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store(){
+    public function login(){
         if (auth()->attempt(request(['email', 'password'])) == false) {
-            return back()->with('error', 'les données entrées sont incorrectes');
+            return back()->with('auth-error', 'Les identifiants entrés sont incorrects');
         }
 
-        return redirect()->to('/');
+        return redirect()->to(route('index'));
 	}
+
+    public function logOut(){
+        auth()->logout();
+        return redirect()->to(route('index'));
+    }
 }
