@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-8 form-group">
                             <label>Genre</label>
-                            <select name="genre" id="" class="form-control">
+                            <select name="genre" class="form-control">
                                 <option value="m">M</option>
                                 <option value="f">F</option>
                             </select>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-md-8 form-group">
                             <label>Type de compte</label>
-                            <select name="type_compte" id="" class="form-control">
+                            <select name="type_compte" class="form-control">
                                 <option value="client">Client</option>
                                 <option value="marchand">Marchand</option>
                             </select>
@@ -55,7 +55,7 @@
                         <div class="alert alert-danger d-none">Mot de passe non identique !</div>
 
                         <div class="col-md-8 form-group">
-                            <button class="btn btn-primary">S'enregister</button>
+                            <button class="btn btn-primary" type="submit">S'enregister</button>
                         </div>
 
                     </div>

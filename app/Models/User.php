@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Marchand;
+use App\Models\Client;
 
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
+
 
     /**
      * The attributes that are mass assignable.
@@ -47,18 +50,18 @@ class User extends Authenticatable
     protected $attributes = [
         'genre' => 'm',
         'firstname' => 'microasset',
-        'phone' => '123456789',
+        'phone' => '',
     ];
 
-    public function setPasswordAttribute($password){
+    /*public function setPasswordAttribute($password){
         $this->attributes['password'] = bcrypt($password);
-     }
+     }*/
 
-    public function Clients(){
+    public function clients(){
         return $this->hasMany(Client::class);
     }
 
-    public function Marchand(){
+    public function marchands(){
         return $this->hasMany(Marchand::class);
     }
 

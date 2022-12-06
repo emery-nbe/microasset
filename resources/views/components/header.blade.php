@@ -12,14 +12,21 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mon Compte</button>
-                        <div class="dropdown-menu dropdown-menu-right">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" id="dropdownOne" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             @auth
-                            <ul class="list-unstyled p-1">
-                                <li><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas fa-user mr-2"></i>Profil</li>
-                                <li><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas far fa-file-alt mr-2"></i>Mes achats</a></li>
-                                <li><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas fa-shopping-cart text-dark mr-2"></i>Panier</li>
-                                <li><a href="{{route('log-out')}}" class="text-decoration-none text-dark"><i class="fas fa-sign-out-alt mr-2"></i>Se deconnecter</li>
+                                {{auth()->user()->firstname}}
+                            @endauth
+                            @guest
+                                Mon compte
+                            @endguest
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownOne">
+                            @auth
+                            <ul class="list-group p-1">
+                                <li class="list-group-item"><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas fa-user mr-2"></i>Profil</li>
+                                <li class="list-group-item"><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas far fa-file-alt mr-2"></i>Mes achats</a></li>
+                                <li class="list-group-item"><a href="{{route('index')}}" class="text-decoration-none text-dark"><i class="fas fa-shopping-cart text-dark mr-2"></i>Panier</li>
+                                <li class="list-group-item"><a href="{{route('log-out')}}" class="text-decoration-none text-dark"><i class="fas fa-sign-out-alt mr-2"></i>Se deconnecter</li>
                             </ul>
                             @endauth
 

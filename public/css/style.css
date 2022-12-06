@@ -6000,8 +6000,7 @@ a.close.disabled {
 .carousel-indicators li {
   box-sizing: content-box;
   flex: 0 1 auto;
-  width: 30px;
-  height: 3px;
+
   margin-right: 3px;
   margin-left: 3px;
   text-indent: -999px;
@@ -9551,7 +9550,6 @@ a.text-dark:hover, a.text-dark:focus {
 
 .carousel-indicators li {
   width: 15px;
-  height: 15px;
   margin: 0 3px 12px 3px;
   background: transparent;
   border: 1px solid #FFFFFF;
